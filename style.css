@@ -1,0 +1,402 @@
+/* ===== RESET & BASE ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  color: #3b2f2f;
+  background-color: #faf6f1;
+  line-height: 1.7;
+}
+
+/* ===== LINKS ===== */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===== NAVIGATION ===== */
+nav {
+  background-color: #4a7c59;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+nav .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #faf6f1;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: #e8e0d5;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 6px 0;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+  color: #ffffff;
+  border-bottom-color: #d4a762;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding: 100px 20px 80px;
+  min-height: 65vh;
+  color: #faf6f1;
+  animation: fadeDown 1s ease-out;
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+  filter: brightness(0.6) contrast(1.05) saturate(0.85);
+  transform: scale(1.05);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(33, 66, 39, 0.35);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 52px;
+  margin-bottom: 16px;
+  letter-spacing: 3px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 550px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 24px;
+  animation: fadeUp 0.8s ease-out;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #4a7c59;
+  border-left: 4px solid #d4a762;
+  padding-left: 16px;
+}
+
+.section p {
+  font-size: 17px;
+  margin-bottom: 16px;
+  color: #5a4a42;
+}
+
+.profile-image {
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  width: 200px;
+  height: auto;
+}
+
+/* ===== TABLE ELEMENTS ===== */
+td img {
+  max-width: 160px;
+  max-height: 140px;
+  object-fit: contain;
+  right: auto;
+}
+
+table {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  animation: fadeUp 0.8s ease-out;
+  margin-bottom: 25px;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: #4a6741;
+  color: #e0e0e0;           
+  padding: 10px 15px;
+  text-align: left;
+  font-weight: bold;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #d6cec4;
+}
+
+/* ===== CARDS (used on types page) ===== */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.card {
+  flex: 1 1 250px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 30px 24px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: fadeUp 0.8s ease-out both;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.13);
+}
+
+.card h3 {
+  font-size: 22px;
+  color: #4a7c59;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #6b5e56;
+}
+
+/* ===== STEPS (used on brewing page) ===== */
+.steps {
+  counter-reset: step;
+  margin-top: 30px;
+}
+
+.step {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 28px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  animation: slideIn 0.6s ease-out both;
+}
+
+.step-number {
+  counter-increment: step;
+  background: #4a7c59;
+  color: #faf6f1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.step-content h3 {
+  font-size: 19px;
+  color: #3b2f2f;
+  margin-bottom: 4px;
+}
+
+.step-content p {
+  font-size: 15px;
+  color: #6b5e56;
+}
+
+/* ===== CONTACT FORM ===== */
+form {
+  max-width: 500px;
+  margin-top: 30px;
+  animation: fadeUp 0.8s ease-out;
+}
+
+form label {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #4a7c59;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 2px solid #d6cec4;
+  border-radius: 8px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  background: #ffffff;
+  transition: border-color 0.3s;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  border-color: #4a7c59;
+}
+
+form textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+form button {
+  background: #4a7c59;
+  color: #faf6f1;
+  border: none;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-family: Georgia, serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+form button:hover {
+  background: #3d6a4b;
+}
+
+form button:active {
+  transform: scale(0.97);
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: #3b2f2f;
+  color: #c9bfb2;
+  text-align: center;
+  padding: 28px 20px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-top: 40px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Background setup */
+.leaf-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -3; /* Keeps it behind your content */
+  overflow: hidden;
+  pointer-events: none; /* Prevents leaves from blocking clicks */
+}
+
+/* Creating the Leaf Shape */
+.leaf {
+  position: absolute;
+  top: -50px;
+  width: 15px;
+  height: 15px;
+  background: #74ad5a;
+  border-radius: 0 100% 0 100%; /* Creates a leaf eye-shape */
+  opacity: 0.8;
+  animation: fall 10s linear infinite;
+}
+
+/* The Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(0) rotate(0deg) translateX(0);
+  }
+  25% {
+    transform: translateY(25vh) rotate(90deg) translateX(30px);
+  }
+  50% {
+    transform: translateY(50vh) rotate(180deg) translateX(-30px);
+  }
+  75% {
+    transform: translateY(75vh) rotate(270deg) translateX(30px);
+  }
+  100% {
+    transform: translateY(105vh) rotate(360deg) translateX(0);
+  }
+}
+
+/* Randomizing leaf positions and speeds */
+.leaf:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; }
+.leaf:nth-child(2) { left: 30%; animation-duration: 15s; animation-delay: 2s; background: #88b04b; }
+.leaf:nth-child(3) { left: 55%; animation-duration: 10s; animation-delay: 4s; }
+.leaf:nth-child(4) { left: 75%; animation-duration: 18s; animation-delay: 1s; background: #a4c639; }
+.leaf:nth-child(5) { left: 90%; animation-duration: 14s; animation-delay: 5s; }
